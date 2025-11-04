@@ -1,0 +1,85 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+/* AR空間 */
+canvas {
+    display: block;
+}
+
+/* AR開始前の画面 */
+#welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+}
+
+#welcome-screen button {
+    font-size: 1.5em;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* AR中のUI全体 */
+#ar-ui {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    display: none; /* JSで表示を切り替える */
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* 操作ボタンのグリッド */
+.controls-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+    width: 240px; /* 操作しやすい幅に固定 */
+}
+
+.control-btn {
+    font-size: 1.2em;
+    padding: 10px;
+    width: 70px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background: #f0f0f0;
+    color: #333;
+    cursor: pointer;
+    user-select: none; /* 長押しでテキスト選択されるのを防ぐ */
+}
+
+.control-btn:active {
+    background: #ccc;
+}
+
+/* テクスチャ変更UI */
+.texture-controls {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 5;
+    display: none; /* AR-UIと連動 */
+}
